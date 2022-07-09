@@ -14,13 +14,24 @@
   <title>Inline JavaScript</title>
 </head>
 
-<body>
+<body
+  onload="alert('Bine ai venit pe aceast site!')"
+  ;
+>
 
 
   <button onclick="console.log('Hello World')">Button</button>
   <button onclick="alert('Bine ai venit la Pixellab');">Welcome</button>
   <button onclick="console.log(prompt('Care este numele tau'));">Promt</button>
   <button onclick="console.log(20 + 156);">suma nr</button>
+  <button onclick="alert('Bine ai venit pe acest site');">Bine ai venit</button>
+  <button
+    onmouseover="console.log('Apasa-ma!')"
+    onclick="alert('M-ai apasat!')"
+    ;
+  >Apasa-ma!</button>
+
+
 
 </body>
 
