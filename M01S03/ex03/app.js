@@ -50,10 +50,21 @@ delete larry.friends.person;
 console.warn(`
   Afiseaza numele complet al lui Person folosind obiectul Larry.
 `);
+
 console.log(
   larry.friends.steven.friends.person.name +
     ' ' +
     larry.friends.steven.friends.person.surname,
+);
+
+console.warn(`
+Afiseaza numele complet a lui Larry folosind obiectul Person.
+`);
+
+console.log(
+  person.friends.andra.friends.larry.name +
+    ' ' +
+    person.friends.andra.friends.larry.surname,
 );
 
 console.warn(`
@@ -63,4 +74,18 @@ console.log(
   carol.friends.andra.friends.person.name +
     ' ' +
     carol.friends.andra.friends.person.surname,
+);
+
+console.warn(
+  `
+  Folosind obiectul Andra afiseaza numarul total de caractere al numelui complet al lui Person.
+  `,
+);
+
+// aici nu reuseam fara party tricks din consola :))
+console.log(
+  (
+    andra.friends.larry.friends.steven.friends.person.name +
+    andra.friends.larry.friends.steven.friends.person.surname
+  ).length.toString(),
 );
