@@ -169,3 +169,49 @@ for (var i = person.friends.length - 1; i >= 0; i--) {
   message += friend.name + ' ' + friend.surname + punctuation;
 }
 console.log(message);
+
+console.warn(
+  'Folosind obiectul person si un for, afiseaza in consola skillurile pe care le are persoana.',
+);
+
+for (i = 0; i < person.skills.length; i++) {
+  var skill = person.skills[i];
+
+  console.log(skill);
+}
+
+console.warn(` In mod similar, afiseaza skillurile care incep cu c `);
+
+for (i = 0; i < person.skills.length; i++) {
+  var skill = person.skills[i];
+
+  if (skill[0] === 'c') {
+    console.log(skill);
+  }
+}
+
+console.warn(
+  `Folosind un for afiseaza propozitia: "Numele de familie ale prietenilor mei sunt: xxx, xxx, xxx.`,
+);
+var message = 'Numele de familie ale prietenilor mei sunt: ';
+
+for (i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
+  var punctuation = ', ';
+
+  if (i === person.friends.length - 1) {
+    punctuation = '.';
+  }
+  message = message + friend.surname + punctuation;
+}
+console.log(message);
+
+var totalAge = 0;
+console.warn(
+  `Folosind un for, afiseaza numarul total de ani pe care il au persoanele din arrayul friends`,
+);
+for (i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
+  var totalAge = totalAge + friend.age;
+}
+console.log(totalAge.toString());

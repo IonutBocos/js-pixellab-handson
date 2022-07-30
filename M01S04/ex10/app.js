@@ -107,3 +107,64 @@ console.log(message.trim());
 person.skills.reverse().forEach(function (skill) {
   console.log(skill);
 });
+
+console.warn(
+  `Folosind obiectul person si forEach, afiseaza in consola skillurile pe care le are persoana.`,
+);
+person.skills.forEach(function (skill) {
+  console.log(skill);
+});
+
+// NU REUSESC SA NIMERESC CODUL :(
+console.warn(`In mod similar, afiseaza skillurile care nu incep cu j.`);
+person.skills.forEach(function (skill) {
+  if (skill !== 'j') {
+    console.log(skill);
+  }
+});
+
+console.warn(` Folosind forEach afiseaza propozitia: "Numele mari ale prietenilor mei sunt xxx, xxx, xxx."
+`);
+
+// AICI DA-MI O IDEE CU PUNCTUATIA TE ROG
+var message = 'Numele mari ale prietenilor mei sunt ';
+person.friends.forEach(function (friend) {
+  var punctuation = ', ';
+  if (friend.name === person.friends.length - 1) {
+    punctuation = '.';
+  }
+
+  message += friend.name + punctuation;
+});
+
+console.log(message);
+
+console.warn(
+  `Folosind forEach, afiseaza numarul total de ani pe care il au persoanele din arrayul friends `,
+);
+
+var totalAge = 0;
+person.friends.forEach(function (friend) {
+  totalAge += friend.age;
+});
+console.log(totalAge.toString());
+
+console.warn(
+  `Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends.`,
+);
+
+person.friends.forEach(function (friend) {
+  var ageDiff = Math.abs(person.age - friend.age);
+
+  console.log(ageDiff);
+});
+
+console.warn(
+  `Folosind metoda reverse si apoi forEach, afiseaza in ordine inversa numele complet al prietenilor din arrayul friends.`,
+);
+
+person.friends.reverse().forEach(function (friend) {
+  var fullName = friend.name + ' ' + friend.surname;
+
+  console.log(fullName);
+});

@@ -71,3 +71,35 @@ for (var i = 0; i < friendsCount; i++) {
 
   console.log(fullName + ' are mai mult de 13 caractere.');
 }
+console.warn(
+  `Folosind o bucla for afiseaza proprietatea name a tuturor obiectelor din arrayul friends.`,
+);
+
+for (i = 0; i < friends.length; i++) {
+  var friend = friends[i];
+
+  console.log(friend.name);
+}
+
+console.warn(`Afiseaza numele complet al tuturor prietenilor.`);
+for (i = 0; i < friends.length; i++) {
+  var friend = friends[i];
+  var fullName = friend.name + ' ' + friend.surname;
+  console.log(fullName);
+}
+
+console.warn(
+  `Folosind keywordul break, afiseaza numele complet al prietenilor dar opeste bucla la primul surname care are numarul de caractere mai mare sau egal decat 9 si afiseaz-l intr-o propozitie de forma “M-am oprit la Nume Prenume.”.`,
+);
+
+for (var i = 0; i < friendsCount; i++) {
+  var friend = friends[i];
+  var fullName = friend.surname + ' ' + friend.name;
+
+  if (friend.surname.length >= 9) {
+    console.log('M-am oprit la ' + fullName + '.');
+
+    break;
+  }
+  console.log(fullName);
+}
