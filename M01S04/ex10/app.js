@@ -163,8 +163,11 @@ console.warn(
   `Folosind metoda reverse si apoi forEach, afiseaza in ordine inversa numele complet al prietenilor din arrayul friends.`,
 );
 
-person.friends.reverse().forEach(function (friend) {
-  var fullName = friend.name + ' ' + friend.surname;
+person.friends
+  .slice()
+  .reverse()
+  .forEach(function (friend) {
+    var fullName = friend.name + ' ' + friend.surname;
 
-  console.log(fullName);
-});
+    console.log(fullName);
+  });
