@@ -31,6 +31,13 @@ console.log(birthYear.toString());
 console.log(
   `Ma numesc ${accessor('Name')}, am ${accessor(
     'Age',
-  )} ani si m-am nascut in anul ${birthYear}. `,
+  )} ani si m-am nascut in anul ${birthYear}.`,
 );
-// nu e verde
+
+console.warn(
+  `Afiseaza anul de nastere al persoanei folosind anul curent. Intr-o propozitie de forma “M-am nascut in 1987.”`,
+);
+console.log(`M-am nascut in ${birthYear}.`);
+
+console.warn(`Afiseaza propozitia “Ma numesc xxx yyy si am aa ani!”`);
+console.log(`Ma numesc ${person.getName()} si am ${person.getAge()} ani!`);
