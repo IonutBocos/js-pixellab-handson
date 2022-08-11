@@ -115,10 +115,9 @@ person.skills.forEach(function (skill) {
   console.log(skill);
 });
 
-// NU REUSESC SA NIMERESC CODUL :(
 console.warn(`In mod similar, afiseaza skillurile care nu incep cu j.`);
 person.skills.forEach(function (skill) {
-  if (skill !== 'j') {
+  if (skill[0] !== 'j') {
     console.log(skill);
   }
 });
@@ -126,15 +125,14 @@ person.skills.forEach(function (skill) {
 console.warn(` Folosind forEach afiseaza propozitia: "Numele mari ale prietenilor mei sunt xxx, xxx, xxx."
 `);
 
-// AICI DA-MI O IDEE CU PUNCTUATIA TE ROG
 var message = 'Numele mari ale prietenilor mei sunt ';
-person.friends.forEach(function (friend) {
+person.friends.forEach(function (friend, index) {
   var punctuation = ', ';
-  if (friend.name === person.friends.length - 1) {
+  if (index === person.friends.length - 1) {
     punctuation = '.';
   }
 
-  message += friend.name + punctuation;
+  message += friend.surname + punctuation;
 });
 
 console.log(message);
