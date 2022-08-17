@@ -9,6 +9,8 @@ const car = {
   color: 'black',
   wheels: 4,
   speed: 50,
+  topSpeed: 160,
+  topReverseSpeed: -50,
   // flags
   isTrunkOpen: false,
   areLightsOn: false,
@@ -42,6 +44,28 @@ const car = {
       self.turnLightsOff();
     }, 500);
   },
+  // Adauga o proprietate numita topSpeed si asigneaza-i valoarea 160.
+  // Adauga o proprietate numita topReverseSpeed si asigneaza-i valoarea -50.
+  // Adauga o metoda numita stop() care sa faca proprietatea speed 0, apoi afiseaza viteza.
+  // Adauga  o metoda numita setSpeed() care sa poata primi un parametru fix pentru viteza. Metoda trebuie sa verifice ca nu se depasesc limitele inferioare si superioare, caz in care se folosesc proprietatile topSpeed si topReverseSpeed
+  stop: function () {
+    this.speed = 0;
+  },
+
+  setSpeed: function () {
+    this.accelerate <= this.topSpeed;
+    this.decelerate >= this.topReverseSpeed;
+
+    this.speed = 20;
+  },
 };
 
-//
+// //Afiseaza propozitia: "Masina era marca make si se deplasa cu speed km/h.".
+// Decelereaza masina cu 5 unitati apoi afiseaza propozitia: "Viteza noua este speed km/h".
+
+console.log(
+  `Masina are marca ${car.make} si se deplaseaza cu ${car.speed} km/h.`,
+);
+
+for (decelerate = car.speed; decelerate > car.speed - 5; decelerate--) {}
+console.log(`Viteza noue este ${decelerate} km/h.`);

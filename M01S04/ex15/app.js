@@ -43,17 +43,20 @@ for (var i = 0; i < person.friends.length; i++) {
   var friend = person.friends[i];
   for (var y = 0; y < person.friends.length; y++) {
     var friendComparation = person.friends[y];
+    ageDiff = Math.abs(friend.age - friendComparation.age);
+    if (i === y) {
+      continue;
+    } else {
+      message =
+        'Intre ' +
+        friend.name +
+        ' si ' +
+        friendComparation.name +
+        ' este o diferenta de ' +
+        ageDiff +
+        ' ani.';
+
+      console.log(message);
+    }
   }
-
-  ageDiff = Math.abs(friend.age - friendComparation.age);
-
-  message =
-    friend.name +
-    ' si ' +
-    friendComparation.name +
-    ' este o diferenta de ' +
-    ageDiff +
-    ' ani.';
-
-  console.log(message);
 }
