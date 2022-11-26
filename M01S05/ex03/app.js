@@ -13,3 +13,6 @@ const beerYield = 2.5 / 10;
 const field3Yield = yield * calculateRectangleArea(400, 370);
 
 console.log(beerYield * field3Yield);
+
+const cantFaina = calculateRectangleArea(150, 200) * 32;
+console.log(cantFaina * 2.5);

@@ -28,3 +28,15 @@ function displayTime() {
   document.getElementById('seconds').innerText = sec;
 }
 setInterval(displayTime, 1000);
+
+// function alarm() {
+//   let setHours = getElementById('alarmHours');
+//   let setMinutes = getElementById('alarmMinutes');
+//   let setSeconds = getElementById('alarmSeconds');
+
+//   function alarmCheck() {
+//     if ((setHours === hrs, setMinutes === min, (setSeconds = sec))) {
+//       console.log('Alarma');
+//     }
+//   }
+// }

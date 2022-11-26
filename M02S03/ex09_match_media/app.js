@@ -26,10 +26,25 @@ const onClick = (event) => {
   }
 };
 
-const onResize = () => {
-  const width = window.innerWidth;
+// const onResize = () => {
+//   const width = window.innerWidth;
 
-  if (width <= 500) {
+//   if (width <= 500) {
+//     ul.style.display = 'none';
+//     heading.addEventListener('click', onClick);
+//   } else {
+//     ul.style.display = '';
+//     heading.removeEventListener('click', onClick);
+//   }
+// };
+
+// onResize();
+
+// window.addEventListener('resize', onResize);
+
+const mediaQueryList = matchMedia('(max-width: 500px)');
+const enableMenu = (matches) => {
+  if (matches) {
     ul.style.display = 'none';
     heading.addEventListener('click', onClick);
   } else {
@@ -38,6 +53,9 @@ const onResize = () => {
   }
 };
 
-onResize();
+enableMenu(mediaQueryList.matches);
 
-window.addEventListener('resize', onResize);
+mediaQueryList.addEventListener('change', (event) => {
+  const { matches } = event;
+  enableMenu(matches);
+});

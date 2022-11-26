@@ -1,8 +1,12 @@
 class Car {
-  constructor(positionX, positionY, color) {
+  areHazardsOn = false;
+  intervalId = -1;
+  isLightOn = false;
+  constructor(positionX, positionY, color, wheealColor) {
     this.positionX = positionX;
     this.positionY = positionY;
     this.color = color;
+    this.wheealColor = wheealColor;
 
     this.frame = this.e('div');
     this.frame.classList.add('frame');
@@ -31,6 +35,10 @@ class Car {
     this.lightFront.classList.add('light', 'light--front');
     this.carBody.append(this.lightFront);
 
+    this.areHazardsOn = this.e('div');
+    this.areHazardsOn.classList.add('light--front', 'light--back');
+    this.carBody.append(this.areHazardsOn);
+
     this.wheelBack = this.e('div');
     this.wheelBack.classList.add('wheel', 'car__wheel', 'car__wheel--back');
     this.carBody.append(this.wheelBack);
@@ -54,29 +62,100 @@ class Car {
 
   turnLightOn() {
     this.lightFront.classList.add('light--on');
+    this.isLightOn = true;
 
     return this;
   }
 
   turnLightOff() {
     this.lightFront.classList.remove('light--on');
+    this.isLightOn = false;
+    return this;
+  }
+
+  engageBreak() {
+    this.lightBack.classList.add('light--on');
 
     return this;
   }
 
-  turn;
+  disengageBreak() {
+    this.lightBack.classList.remove('light--on');
+
+    return this;
+  }
+
+  changeTireColor() {
+    this.wheelFront.style.backgroundColor = this.wheealColor;
+    this.wheelBack.style.backgroundColor = this.wheealColor;
+
+    return this;
+  }
+
+  moveTo() {
+    this.frame.style.left = `100px`;
+    this.frame.style.top = `100px`;
+
+    return this;
+  }
+
+  // toggleHazards() {
+  //   this.lightFront = this.areHazardsOn;
+  //   this.lightBack = this.areHazardsOn;
+
+  //   return this;
+  // }
 
   e(elementName) {
     // wrappers in action
     return document.createElement(elementName);
   }
+
+  toggleHazards() {
+    if (this.areHazardsOn === true) {
+      clearInterval(this.intervalId);
+      this.areHazardsOn = false;
+
+      if (this.isLightOn === true) {
+        this.lightFront.classList.add('light--on');
+      } else {
+        this.lightFront.classList.remove('light--on');
+      }
+
+      return;
+    }
+
+    const self = this;
+
+    self.intervalId = setInterval(function () {
+      self.lightFront.classList.toggle('light--on');
+      self.lightBack.classList.toggle('light--on');
+    }, 1000);
+
+    self.areHazardsOn = true;
+  }
 }
 
-const car01 = new Car(250, 16, 'red');
-car01.render();
-const car02 = new Car(16, 250, 'blue');
+const car01 = new Car(250, 16, 'red', 'gray')
+  .render()
+  .turnLightOn()
+  .engageBreak()
+  .moveTo()
+  .changeTireColor().toggleHazards;
+
+// another
+const car02 = new Car(16, 250, 'blue', 'gray');
+car02.render().turnLightOn();
 car02.render();
-const car03 = new Car(16, 16, 'teal').render().turnLightOn();
+car02.engageBreak();
+car02.changeTireColor();
+car02.toggleHazards();
+
+const car03 = new Car(16, 16, 'teal', 'gray')
+  .render()
+  .turnLightOn()
+  .engageBreak()
+  .changeTireColor();
 
 // Folosind fisierele rezultate din exercitiul 04. Creeaza configurare pentru culoarea rotilor
 // si a capacelor de roti si metode pentru schimbarea lor dinamica.

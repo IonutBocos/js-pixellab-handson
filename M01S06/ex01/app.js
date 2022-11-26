@@ -48,15 +48,23 @@ const car = {
   // Adauga o proprietate numita topReverseSpeed si asigneaza-i valoarea -50.
   // Adauga o metoda numita stop() care sa faca proprietatea speed 0, apoi afiseaza viteza.
   // Adauga  o metoda numita setSpeed() care sa poata primi un parametru fix pentru viteza. Metoda trebuie sa verifice ca nu se depasesc limitele inferioare si superioare, caz in care se folosesc proprietatile topSpeed si topReverseSpeed
+
   stop: function () {
     this.speed = 0;
   },
 
+  var seSpeed = prompt('');
   setSpeed: function () {
     this.accelerate <= this.topSpeed;
     this.decelerate >= this.topReverseSpeed;
 
-    this.speed = 20;
+
+
+    if (setSpeed < this.topReverseSpeed) {
+      console.log('Ai depasit limita inferioara');
+    } else if (setSpeed > this.topSpeed) {
+      console.log('Ai depasit limita maxima');
+    }
   },
 };
 
